@@ -4,6 +4,8 @@ import os
 FILE = "students.json"
 
 # Load data
+
+
 def load_data():
     if not os.path.exists(FILE):
         return []
@@ -11,22 +13,29 @@ def load_data():
         return json.load(f)
 
 # Save data
+
+
 def save_data(data):
     with open(FILE, "w") as f:
         json.dump(data, f, indent=4)
 
 # Create
+
+
 def create_student():
     students = load_data()
     name = input("Enter name: ")
     age = input("Enter age: ")
     course = input("Enter course: ")
-    student = {"id": len(students) + 1, "name": name, "age": age, "course": course}
+    student = {"id": len(students) + 1, "name": name,
+               "age": age, "course": course}
     students.append(student)
     save_data(students)
     print("Student added successfully!")
 
 # Read
+
+
 def read_students():
     students = load_data()
     if not students:
@@ -34,9 +43,12 @@ def read_students():
         return
     print("\n--- Student List ---")
     for s in students:
-        print(f"ID: {s['id']} | Name: {s['name']} | Age: {s['age']} | Course: {s['course']}")
+        print(
+            f"ID: {s['id']} | Name: {s['name']} | Age: {s['age']} | Course: {s['course']}")
 
 # Update
+
+
 def update_student():
     students = load_data()
     read_students()
@@ -52,6 +64,8 @@ def update_student():
     print("Student not found.")
 
 # Delete
+
+
 def delete_student():
     students = load_data()
     read_students()
@@ -61,6 +75,8 @@ def delete_student():
     print("Student deleted successfully!")
 
 # Menu
+
+
 def menu():
     while True:
         print("\n===== Student Management System =====")
@@ -85,6 +101,7 @@ def menu():
             break
         else:
             print("Invalid choice! Try again.")
+
 
 if __name__ == "__main__":
     menu()
