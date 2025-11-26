@@ -38,3 +38,18 @@ for i in range(5):
 print('\n grade for the fice marks:')
 for i, mark in enumerate(marks2, start=1):
     print(f'mark {i}: {mark} -> grade: {get_grade(mark)}')
+
+# ---c---
+total = 0
+
+print("Enter numbers (enter -999 to stop):")
+
+while True:
+    num = float(input("Enter a number: "))
+
+    if num == -999:
+        break
+
+    total += num
+
+print("\nSum of the numbers entered:", total)
